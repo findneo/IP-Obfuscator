@@ -5,6 +5,7 @@
 #      https://tools.ietf.org/html/rfc3986
 #      http://www.linuxsa.org.au/pipermail/linuxsa/2007-September/088131.html
 import itertools as it
+import random
 ip = '192.168.66.233'
 i = ip.split('.')
 
@@ -29,14 +30,16 @@ hi = [f(i[0]),
 def hex2oct(x):
     """ arbitrary length is supported
     """
-    moreZero = 0
+    moreZero = random.choice(range(10))
     return oct(int(x, 16)).zfill(moreZero + len(oct(int(x, 16)))).strip('L')
 
 
 def hex2int(x): return str(int(x, 16))
 
 
-def hex2hex(x): return '0x' + x
+def hex2hex(x):
+    moreZero = random.choice(range(10))
+    return '0x' + '0' * moreZero + x
 
 
 p = [hex2hex, hex2int, hex2oct]
