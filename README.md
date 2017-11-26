@@ -8,7 +8,7 @@ You can check [this article](https://findneo.github.io/2017/11/textual-represent
 
 # Example
 ```python
-python obscure.py
+python obscureIP.py
 ```
 output:
 ```python
