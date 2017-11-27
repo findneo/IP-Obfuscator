@@ -1,4 +1,4 @@
-# IP-Obfuscation - Generate obscure forms of IP address
+# IP-Obfuscation - Generate hundreds of obscure forms of IP address
 
 Script is written according to `inet_aton()` introduced by `4.2BSD` ,which is undesirable and considered as non-standard but de facto quite widely interoperable.
 
