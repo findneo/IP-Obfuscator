@@ -30,7 +30,8 @@ hi = [f(i[0]),
 def hex2oct(x):
     """ arbitrary length is supported
     """
-    moreZero = random.choice(range(10))
+    # moreZero = random.choice(range(10))
+    moreZero = 0
     return oct(int(x, 16)).zfill(moreZero + len(oct(int(x, 16)))).strip('L')
 
 
@@ -38,12 +39,14 @@ def hex2int(x): return str(int(x, 16))
 
 
 def hex2hex(x):
-    moreZero = random.choice(range(10))
+    # moreZero = random.choice(range(10))
+    moreZero = 0
     return '0x' + '0' * moreZero + x
 
 
 p = [hex2hex, hex2int, hex2oct]
 res = []
+
 # "a.b.c.d"
 # Each of the four numeric parts specifies a byte of the address;
 # the bytes are assigned in left-to-right order to produce the binary address.
@@ -81,12 +84,16 @@ def test_notation(ip_notation):
     return answer.decode('gbk').strip()
 
 
-print "\nchecking. . .",
-for i in xrange(len(res)):
-    # print "[%d] %s\t\t\t%s" % (i, res[i], test_notation(res[i]))
-    test_notation(res[i])
-    print '.',
+def check():
+    print "\nchecking. . .",
+    for i in xrange(len(res)):
+        # print "[%d] %s\t\t\t%s" % (i, res[i], test_notation(res[i]))
+        test_notation(res[i])
+        print '.',
 
-print "\n\ntotally %d notations of ip checked ,all are equivalent to %s" % (len(res), ip)
-if len(except_ip):
-    print "except for notations following:\n", except_ip
+    print "\n\ntotally %d notations of ip checked ,all are equivalent to %s" % (len(res), ip)
+    if len(except_ip):
+        print "except for notations following:\n", except_ip
+
+
+check()
